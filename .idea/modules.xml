@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/RFSclient/RFSclient.iml" filepath="$PROJECT_DIR$/RFSclient/RFSclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RFSserver/RFSserver.iml" filepath="$PROJECT_DIR$/RFSserver/RFSserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/RemoteFileSystemBrowser.iml" filepath="$PROJECT_DIR$/.idea/RemoteFileSystemBrowser.iml" />
+    </modules>
+  </component>
+</project>
