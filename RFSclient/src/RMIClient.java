@@ -32,6 +32,17 @@ public class RMIClient extends javax.swing.JFrame {
         defaultDir = currentDir;
     }
 
+    private String getDateString(long milliseconds) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        return sdf.format(new Date(milliseconds));
+    }
+
+    private String formatSize(long bytes) {
+        if (bytes < 1000) return bytes + " B";
+        int exp = (int) (Math.log(bytes) / Math.log(1000));
+        String pre = "kMGTPE".charAt(exp-1) + "";
+        return String.format("%.1f %sB", bytes / Math.pow(1000, exp), pre);
+    }
 
     private void openFolderButtonMouseClicked(java.awt.event.MouseEvent evt) {
         if (!openFolderButton.isEnabled()) return;
@@ -285,10 +296,14 @@ public class RMIClient extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JList<String> fileList;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton newFileButton;
     private javax.swing.JButton newFolderButton;
     private javax.swing.JButton openFolderButton;
+    private javax.swing.JLabel propertiesLabel;
     private javax.swing.JTable propertiesTable;
     private javax.swing.JButton renameButton;
+    private javax.swing.JLabel titleLabel;
   
 }
