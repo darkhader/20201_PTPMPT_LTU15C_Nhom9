@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="RFSserver">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/dist/RFSserver.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
