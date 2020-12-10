@@ -14,8 +14,24 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class RMIClient extends javax.swing.JFrame {
+    private final Registry registry;
+    private final Protocol p;
     private File[] files;
     private File currentDir;
+    private final File defaultDir;
+    private final String address;
+
+    public RMIClient() throws RemoteException, NotBoundException {
+        address = JOptionPane.showInputDialog(new JFrame(), "Enter the server IP address:", "Remote File System Browser", JOptionPane.QUESTION_MESSAGE);
+        if (address == null) exit(0);
+        registry = LocateRegistry.getRegistry(address);
+        
+        p = (Protocol)registry.lookup("myProtocol");
+        files = p.readDirectory(p.getDefaultDirectoryPath());
+        currentDir = new File(p.getDefaultDirectoryPath());
+        defaultDir = currentDir;
+    }
+
 
     private void openFolderButtonMouseClicked(java.awt.event.MouseEvent evt) {
         if (!openFolderButton.isEnabled()) return;
@@ -269,14 +285,10 @@ public class RMIClient extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JList<String> fileList;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton newFileButton;
     private javax.swing.JButton newFolderButton;
     private javax.swing.JButton openFolderButton;
-    private javax.swing.JLabel propertiesLabel;
     private javax.swing.JTable propertiesTable;
     private javax.swing.JButton renameButton;
-    private javax.swing.JLabel titleLabel;
   
 }
