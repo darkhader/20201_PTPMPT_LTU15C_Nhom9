@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RFSclient">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/RFSclient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
