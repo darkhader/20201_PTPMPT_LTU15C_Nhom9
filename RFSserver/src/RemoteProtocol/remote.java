@@ -27,3 +27,27 @@ public class RemoteProtocol implements Protocol{
         
         return fileList;
     }
+     
+    @Override
+    public void createDirectory(String directoryName) throws RemoteException {
+        File directory = new File(directoryName);
+        
+        try{
+            directory.mkdir();
+        } 
+        catch(SecurityException se){
+            se.printStackTrace();
+        } 
+    }
+
+    @Override
+    public void deleteFile(String name) throws RemoteException {
+        File fileName = new File(name);
+        
+        try {
+            fileName.delete();
+        }
+        catch(SecurityException se){
+            se.printStackTrace();
+        }
+    }
