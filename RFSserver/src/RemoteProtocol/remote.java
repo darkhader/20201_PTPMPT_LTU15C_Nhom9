@@ -51,3 +51,43 @@ public class RemoteProtocol implements Protocol{
             se.printStackTrace();
         }
     }
+
+    
+    @Override
+    public void deleteDirectory(String name) throws RemoteException {
+        File directory = new File(name);
+        File[] files = directory.listFiles();
+        
+        if (files != null) { 
+            for (File f:files) {
+                if (f.isDirectory()) {
+                    deleteDirectory(f.getAbsolutePath());
+                } 
+                else {
+                    f.delete();
+                }
+            }
+        }
+        directory.delete();
+    }
+
+ @Override
+    public boolean isDirectory(File file) throws RemoteException {
+        return file.isDirectory();
+    }
+
+    @Override
+    public boolean isFile(File file) throws RemoteException {
+        return file.isFile();
+    }
+
+    @Override
+    public long getLength(File file) throws RemoteException {
+        return file.length();
+    }
+
+    @Override
+    public long getLastModifiedDate(File file) throws RemoteException {
+        return file.lastModified();
+    }
+}
