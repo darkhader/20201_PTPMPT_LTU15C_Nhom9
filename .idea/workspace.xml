@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0faf5647-500c-45ca-8a4f-d7fe7a28d47d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/RFSserver/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +39,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1kjUQsi5Sha9U72rfly41OMXQFt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,19 +51,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/RFSclient" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../New folder/20201_PTPMPT_LTU15C_Nhom9/RFSclient" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -56,21 +79,47 @@
       <option name="presentableId" value="Default" />
       <updated>1606213481299</updated>
       <workItem from="1606213482421" duration="104000" />
-      <workItem from="1607582690284" duration="351000" />
+      <workItem from="1607582690284" duration="2438000" />
+      <workItem from="1607585282141" duration="499000" />
+      <workItem from="1607586267374" duration="3143000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="480" y="188" key="#Web_Browsers" timestamp="1607585362344">
+      <screen x="0" y="30" width="1366" height="738" />
+    </state>
+    <state x="480" y="188" key="#Web_Browsers/0.30.1366.738@0.30.1366.738" timestamp="1607585362344" />
     <state x="137" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606213574862">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="137" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.1366.738@0.30.1366.738" timestamp="1606213574862" />
-    <state x="463" y="154" key="FileChooserDialogImpl" timestamp="1606213586164">
+    <state x="463" y="154" key="FileChooserDialogImpl" timestamp="1607588302561">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="463" y="154" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1606213586164" />
+    <state x="463" y="154" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1607588302561" />
+    <state x="163" y="30" key="SettingsEditor" timestamp="1607583632764">
+      <screen x="0" y="30" width="1366" height="738" />
+    </state>
+    <state x="163" y="30" key="SettingsEditor/0.30.1366.738@0.30.1366.738" timestamp="1607583632764" />
+    <state x="390" y="132" width="585" height="534" key="find.popup" timestamp="1607588612024">
+      <screen x="0" y="30" width="1366" height="738" />
+    </state>
+    <state x="390" y="132" width="585" height="534" key="find.popup/0.30.1366.738@0.30.1366.738" timestamp="1607588612024" />
   </component>
 </project>
