@@ -71,6 +71,32 @@ public class RemoteProtocol implements Protocol{
         directory.delete();
     }
 
+    @Override
+    public void rename(String name, String nameNew) throws RemoteException {
+        File fileName = new File(name);
+        File renamed = new File(nameNew);
+        
+        try {
+            fileName.renameTo(renamed);
+        }
+        catch(SecurityException se){
+            se.printStackTrace();
+        }
+    }
+    
+    @Override
+    public void createFile(String name) throws RemoteException {
+        File file = new File(name);
+        
+        try{
+            file.createNewFile();
+        } 
+        catch(SecurityException se){
+            se.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(RemoteProtocol.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }  
  @Override
     public boolean isDirectory(File file) throws RemoteException {
         return file.isDirectory();
