@@ -25,40 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0faf5647-500c-45ca-8a4f-d7fe7a28d47d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RFSclient_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RFSserver_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RFSclient/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RFSclient/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/.netbeans_update_resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/build/classes/Protocol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/build/classes/RMIClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/rfs/RMIClient$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/rfs/RMIClient$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/rfs/RMIClient$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/rfs/RMIClient$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/rfs/RMIClient$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/rfs/RMIClient$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/rfs/RMIClient$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/build/classes/rfs/RMIClient$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/src/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/src/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSclient/src/RMIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/src/RMIClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSserver/src/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/RFSserver/src/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSserver/src/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/RFSserver/src/RMIServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RFSserver/src/RemoteProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/RFSserver/src/RemoteProtocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RFSclient/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/RFSclient/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RFSserver/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/RFSserver/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +122,7 @@
       <workItem from="1606213482421" duration="104000" />
       <workItem from="1608032288852" duration="525000" />
       <workItem from="1608033009119" duration="3108000" />
-      <workItem from="1608055367057" duration="11254000" />
+      <workItem from="1608055367057" duration="12440000" />
     </task>
     <servers />
   </component>
