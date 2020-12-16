@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RFSserver:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RFSserver_jar</output-path>
+    <root id="archive" name="RFSserver.jar">
+      <element id="module-output" name="RFSserver" />
+    </root>
+  </artifact>
+</component>

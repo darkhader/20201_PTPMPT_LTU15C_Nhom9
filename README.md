@@ -1,11 +1,13 @@
-# RemoteFileSystemBrowser
-A simple Java GUI remote file system browser 
+grant {
+    permission java.security.AllPermission;
+}; 
+thêm ở lib/sercity .policy file của container
+enter folder RFS
+docker build -t server .
+docker build -t client .
+docker run -e DISPLAY=192.168.42.198:0  cl 
 
-# Details
+docker run -e DISPLAY=192.168.42.198:0  server
 
-Simple file browser using RMI, made for a Distributed Systems class. Basic functionalities only, as nothing more complex was needed.
+find $HOME -type d -name "Documents"
 
-# Authors and License
-
-Created at Instituto Politécnico de Bragança by Bernardo Lopes and Tiago Padrão.
-Distributed under the MIT License.

@@ -4,10 +4,6 @@ import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * @author Bernardo Lopes - a32040
- * @author Tiago Padrão - a33061
- */
 public class RemoteProtocol implements Protocol{
     
     @Override
