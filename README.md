@@ -18,8 +18,8 @@ docker build -t server .
 ```
   ## Run 
   ```python
-docker run -e DISPLAY=192.168.42.198:0  client 
-docker run -e DISPLAY=192.168.42.198:0  server
+docker run -e DISPLAY=192.168.2.109:0  client 
+docker run -e DISPLAY=192.168.2.109:0  server
 ```
   ## Set up Jar  
   ```python
