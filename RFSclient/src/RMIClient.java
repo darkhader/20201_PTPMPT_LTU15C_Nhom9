@@ -20,136 +20,121 @@ public class RMIClient extends javax.swing.JFrame {
     private File currentDir;
     private final File defaultDir;
     private final String address;
-
+    
     public RMIClient() throws RemoteException, NotBoundException {
-        address = JOptionPane.showInputDialog(new JFrame(), "Enter the server IP address:",
-                
-                "Remote File
-            System Browser", JOptionPane.QUESTION_MESSAGE);
-        if (address == null)
-
-        registry = Loc ateRegistry.getRegistry(address);
-
-        p = (Protocol) registry.lookup("myProtocol");
-        files = p.readDirectory(
-
+        address = JOptionPane.showInputDialog(new JFrame(), "Enter the server IP address:", "Remote File System Browser", JOptionPane.QUESTION_MESSAGE);
+        if (address == null) exit(0);
+        registry = LocateRegistry.getRegistry(address);
+        
+        p = (Protocol)registry.lookup("myProtocol");
+        files = p.readDirectory(p.getDefaultDirectoryPath());
+        currentDir = new File(p.getDefaultDirectoryPath());
         defaultDir = currentDir;
-
+        
         initComponents();
     }
-
+    
     private String getDateString(long milliseconds) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        return sdf.format(new Date(milliseconds));
+        String dateString = sdf.format(new Date(milliseconds));
+        return dateString;
     }
-
-            
+    
     private String formatSize(long bytes) {
-        if (bytes < 1000)  
-            return bytes + " B";
+        if (bytes < 1000) return bytes + " B";
         int exp = (int) (Math.log(bytes) / Math.log(1000));
-        String pre = "kMGTPE".charAt(exp - 1) + "";
+        String pre = "kMGTPE".charAt(exp-1) + "";
         return String.format("%.1f %sB", bytes / Math.pow(1000, exp), pre);
     }
-
+    
     private boolean fileExists(String directory, String file) {
         File[] contents = null;
         try {
             contents = p.readDirectory(directory);
-        } catch (Remot e Exception ex) {
-            Logger.getLogger(RMIClient.class
-                getName()).log(Level.SEVERE, null, ex);
+        } catch (RemoteException ex) {
+            Logger.getLogger(RMIClient.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-            if (item.getName().equals(file))
-                return true;
+        for (File item:contents) {
+            if (item.getName().equals(file)) return true;
         }
-
+        
         return false;
     }
-
-
+    
+    private String directoryContents(File directory) throws RemoteException {
         int directoryCount = 0, fileCount = 0;
         String directories = "directories", files = "files";
         File[] contents = null;
-
-        t
-
-        } catch (Remot e Exception ex) {
+        
+        try {
+            contents = p.readDirectory(directory.getAbsolutePath());
+        } catch (RemoteException ex) {
             Logger.getLogger(RMIClient.class.getName()).log(Level.SEVERE, null, ex);
         }
- (File item : contents) {
+        
+        for (File item:contents) {
             if (p.isDirectory(item)) {
-             
-         
-
+                directoryCount++;
             }
-            
+            else {
+                fileCount++;
+            } 
         }
-            
-
-            
-
-            return "Empty directory";
-        if (directoryCount == 1)
-            directories = "directory";
-        if (fileCount == 1)
-            files = "file";
-
-        return directo r yCount + " " + directories + " and " + fileCount + " " + files;
+        
+        if (directoryCount == 0 && fileCount == 0) return "Empty directory";
+        if (directoryCount == 1) directories = "directory";
+        if (fileCount == 1) files = "file";
+        
+        return directoryCount + " " + directories + " and " + fileCount + " " + files;
     }
-
+    
     private DefaultListModel refreshModel() {
         DefaultListModel model = new DefaultListModel();
-
-        for (File file : files) {
+        
+        for (File file:files) {
             model.addElement(file.getName());
         }
 
-        return model;   
-
-    private DefaultTableModel refreshProperties() throws RemoteException {
-                
-        String selectedValue = fileList.getSelectedValue();
-        File selectedItem = null;
-        for (File file : files) {
-            selectedItem = file;
-
-                break;
-            
-        }
-        DefaultTableModel model = new   DefaultTableModel() ;
-        model.addColumn("Property");   
-        model.addColumn("Value");   
-
-
-            return model;
-        if (p.isDirectory(selectedIte m )) { 
-            model.addRow(new String[] { "Type", "Directory" });
-            model.addRow(new String[] { " N ame", s
-                        lectedItem.getName() }); 
-            model.addRow(new String[] { " C ontents", directo
-                        yContents(selectedItem) });   
-        } 
-        else {   
-            model.addRow(new String[] { " T ype", "File" }); 
-            if (selectedItem.getName().contains(".") && selectedItem.getName().indexOf(".") != 0) {
-                model.addRow(new Stri n g[] { "Name", 
-         
-
-                        selectedI t em.getName().substring(selectedItem.getName().indexOf(".") + 1).toU ppe
-
-                model.addRow(new String[] { "Name", selectedItem.getName() });
-                model.addRow(new String[] { "File Extension", "Unknown" });
-            }
-            model.addRow(new String[] { "Size", formatSize(p.getLength(selectedItem)) });
-        }
-
-        model.addRow(new Object[] { "Last modified", getDateString(p.getLastModifiedDate(selectedItem)) });
-
         return model;
     }
-
+    
+    private DefaultTableModel refreshProperties() throws RemoteException {
+        String selectedValue = fileList.getSelectedValue();
+        File selectedItem = null;
+        for (File file:files)
+        {
+            selectedItem = file;
+            if (file.getName() == null ? selectedValue == null : file.getName().equals(selectedValue)) break;
+        }
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Property");
+        model.addColumn("Value");
+        
+        if (selectedItem == null) return model;
+        if (p.isDirectory(selectedItem)) {
+            model.addRow(new String[]{"Type", "Directory"});
+            model.addRow(new String[]{"Name", selectedItem.getName()});
+            model.addRow(new String[]{"Contents", directoryContents(selectedItem)});
+        }
+        
+        else {
+            model.addRow(new String[]{"Type", "File"});
+            if (selectedItem.getName().contains(".") && selectedItem.getName().indexOf(".") != 0) {
+                model.addRow(new String[]{"Name", selectedItem.getName().substring(0, selectedItem.getName().indexOf("."))});
+                model.addRow(new String[]{"File Extension", selectedItem.getName().substring(selectedItem.getName().indexOf(".")+1).toUpperCase()});
+            }
+            else {
+                model.addRow(new String[]{"Name", selectedItem.getName()});
+                model.addRow(new String[]{"File Extension", "Unknown"});
+            }
+            model.addRow(new String[]{"Size", formatSize(p.getLength(selectedItem))});
+        }
+        
+        model.addRow(new Object[]{"Last modified", getDateString(p.getLastModifiedDate(selectedItem))});
+        
+        return model;
+    }
+    
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
@@ -303,18 +288,17 @@ public class RMIClient extends javax.swing.JFrame {
 
         pack();
     }
-
+    
     private void openFolderButtonMouseClicked(java.awt.event.MouseEvent evt) {
-        if (!openFolderButton.isEnabled())
-            return;
+        if (!openFolderButton.isEnabled()) return;
         String selectedValue = fileList.getSelectedValue();
         File selectedItem = null;
-        for (File file : files) {
+        for (File file:files)
+        {
             selectedItem = file;
-            if (file.getName() == null ? selectedValue == null : file.getName().equals(selectedValue))
-                break;
+            if (file.getName() == null ? selectedValue == null : file.getName().equals(selectedValue)) break;
         }
-
+        
         try {
             files = p.readDirectory(selectedItem.getAbsolutePath());
             currentDir = selectedItem;
@@ -324,11 +308,10 @@ public class RMIClient extends javax.swing.JFrame {
             Logger.getLogger(RMIClient.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {
-        if (!backButton.isEnabled())
-            return;
-
+        if (!backButton.isEnabled()) return;
+        
         else {
             try {
                 files = p.readDirectory(currentDir.getParentFile().getAbsolutePath());
@@ -336,30 +319,30 @@ public class RMIClient extends javax.swing.JFrame {
                 fileList.setModel(refreshModel());
                 if (currentDir.equals(defaultDir)) {
                     backButton.setEnabled(false);
-                }
+        }
             } catch (RemoteException ex) {
                 Logger.getLogger(RMIClient.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
-
+    
     private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {
-        if (!deleteButton.isEnabled())
-            return;
+        if (!deleteButton.isEnabled()) return;
         String selectedValue = fileList.getSelectedValue();
         File selectedItem = null;
-        for (File file : files) {
+        for (File file:files)
+        {
             selectedItem = file;
-            if (file.getName() == null ? selectedValue == null : file.getName().equals(selectedValue))
-                break;
+            if (file.getName() == null ? selectedValue == null : file.getName().equals(selectedValue)) break;
         }
-
+        
         try {
             String parent = currentDir.getAbsolutePath();
-
+            
             if (selectedItem.isFile()) {
                 p.deleteFile(selectedItem.getAbsolutePath());
-            } else {
+            }
+            else {
                 p.deleteDirectory(selectedItem.getAbsolutePath());
             }
             files = p.readDirectory(parent);
@@ -374,13 +357,14 @@ public class RMIClient extends javax.swing.JFrame {
             openFolderButton.setEnabled(false);
             renameButton.setEnabled(false);
             deleteButton.setEnabled(false);
-        } else {
+        }
+        else {
             String selectedValue = fileList.getSelectedValue();
             File selectedItem = null;
-            for (File file : files) {
+            for (File file:files)
+            {
                 selectedItem = file;
-                if (file.getName() == null ? selectedValue == null : file.getName().equals(selectedValue))
-                    break;
+                if (file.getName() == null ? selectedValue == null : file.getName().equals(selectedValue)) break;
             }
             if (selectedItem != null) {
                 try {
@@ -388,11 +372,12 @@ public class RMIClient extends javax.swing.JFrame {
                 } catch (RemoteException ex) {
                     Logger.getLogger(RMIClient.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
+                
                 try {
                     if (p.isDirectory(selectedItem)) {
                         openFolderButton.setEnabled(true);
-                    } else {
+                    }
+                    else {
                         openFolderButton.setEnabled(false);
                     }
                 } catch (RemoteException ex) {
@@ -405,20 +390,19 @@ public class RMIClient extends javax.swing.JFrame {
     }
 
     private void renameButtonMouseClicked(java.awt.event.MouseEvent evt) {
-        if (!renameButton.isEnabled())
-            return;
+        if (!renameButton.isEnabled()) return;
         String selectedValue = fileList.getSelectedValue();
         File selectedItem = null;
-        for (File file : files) {
+        for (File file:files)
+        {
             selectedItem = file;
-            if (file.getName() == null ? selectedValue == null : file.getName().equals(selectedValue))
-                break;
+            if (file.getName() == null ? selectedValue == null : file.getName().equals(selectedValue)) break;
         }
-
+        
         try {
             String parent = currentDir.getAbsolutePath();
             String fileExtension = "";
-
+            
             int copyNumber = 1;
             if (selectedItem.getName().contains(".") && selectedItem.getName().indexOf(".") != 0) {
                 fileExtension = selectedItem.getName().substring(selectedItem.getName().indexOf("."));
@@ -426,14 +410,13 @@ public class RMIClient extends javax.swing.JFrame {
             String name = JOptionPane.showInputDialog("Enter the new name:");
             if (name != null && !"".equals(name)) {
                 String renamed = parent + "/" + name + fileExtension;
-
-                if (!fileExists(parent, name + fileExtension))
-                    p.rename(selectedItem.getAbsolutePath(), renamed);
-                else {
+                
+                if (!fileExists(parent, name + fileExtension)) p.rename(selectedItem.getAbsolutePath(), renamed);
+                 else {
                     while (fileExists(parent, name + " (" + copyNumber + ")" + fileExtension)) {
                         copyNumber++;
                     }
-
+                    
                     renamed = parent + "/" + name + " (" + copyNumber + ")" + fileExtension;
                     p.rename(selectedItem.getAbsolutePath(), renamed);
                 }
@@ -446,173 +429,141 @@ public class RMIClient extends javax.swing.JFrame {
     }
 
     private void newFileButtonMouseClicked(java.awt.event.MouseEvent evt) {
-        if (!newFileButton.isEnabled())
-            return;
-
+        if (!newFileButton.isEnabled()) return;
+        
         try {
             String parent = currentDir.getAbsolutePath();
-
             
             int copyNumber = 1;
-            String[][] fileExtensions = { { "Microsoft Word Document (.docx)", "Microsoft Excel Spreadsheet (.xlsx)",
-                    "M i crosof             { ".docx", ".xlsx", ".pptx", ".txt", ".zip" } };
-            String fileType = (String) JOptionPane.showInputDialog(new JFrame(),
-                    "What type of file would you like to create?", "File Type", JOptionPane.QUESTION_M
-                SSAGE, null,
-         
-
+            String[][] fileExtensions = {{"Microsoft Word Document (.docx)", "Microsoft Excel Spreadsheet (.xlsx)", "Microsoft Powerpoint Presentation (.pptx)", "Text Document (.txt)", "Compressed Archive (.zip)"}, 
+                                    {".docx", ".xlsx", ".pptx", ".txt", ".zip"}};
+            String fileType = (String) JOptionPane.showInputDialog(new JFrame(), 
+                "What type of file would you like to create?",
+                "File Type",
+                JOptionPane.QUESTION_MESSAGE, 
+                null, 
+                fileExtensions[0], 
+                fileExtensions[0][0]);
+            if (fileType != null) {
                 int typeIndex = 0;
-                for (String type : fileExtensions[0]) {
-                    if (type.equals(fileType))
-                        break;
+                for (String type:fileExtensions[0]) {
+                    if (type.equals(fileType)) break;
                     typeIndex++;
                 }
-
+                
                 String fileExt = fileExtensions[1][typeIndex];
                 String fileName = JOptionPane.showInputDialog("File name:");
                 if (fileName != null) {
                     if (!"".equals(fileName)) {
-                        if (!fileExi
-            ts(pare
-
+                        if (!fileExists(parent, fileName + fileExt)) p.createFile(parent + "/" + fileName + fileExt);
                         else {
-                            while (fileExists(parent, fileName + " (" + copyNumber + ")" + fileExt)) {
-                                copyNumber++;
-                            }
+                           while (fileExists(parent, fileName + " (" + copyNumber + ")" + fileExt)) {
+                               copyNumber++;
+                           }
 
-                            p.createFile(parent + "/" + fileName + " (" + copyNumber + ")" + fileExt);
-                        }
-                            } else {
-                        if (!fileExists(parent, "New File" + fileExt))
-                            p.createFile(parent + "/" + "New File" + fileExt);
-                        else {
-                            while (fileExists(parent, "New File" + " (" + copyNumber + ")" + fileExt)) {
-                                copyNumber++;
-                            }
-
-                            p.createFi
-            e(parent + "/" + "New File" + " (" + copyNumber + ")" + fileExt);
+                           p.createFile(parent + "/" + fileName + " (" + copyNumber + ")" + fileExt);
                         }
                     }
-                    fi l es = p             fileList.setModel(refreshModel());
+                    else {
+                        if (!fileExists(parent, "New File" + fileExt)) p.createFile(parent + "/" + "New File" + fileExt);
+                        else {
+                           while (fileExists(parent, "New File" + " (" + copyNumber + ")" + fileExt)) {
+                               copyNumber++;
+                           }
+
+                           p.createFile(parent + "/" + "New File" + " (" + copyNumber + ")" + fileExt);
+                        }
+                    }
+                    files = p.readDirectory(parent);
+                    fileList.setModel(refreshModel());
                 }
             }
-                
-        }
-
+        } catch (RemoteException ex) {
+            Logger.getLogger(RMIClient.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-            void newFolderButtonMouseClicked(java.awt.event.MouseEvent evt) {
-        if (!newFolderButton.isEnabled())
-            r 
+    private void newFolderButtonMouseClicked(java.awt.event.MouseEvent evt) {
+        if (!newFolderButton.isEnabled()) return;
+        
         try {
             String parent = currentDir.getAbsolutePath();
-
+            
             int copyNumber = 1;
             String folderName = JOptionPane.showInputDialog("Folder name:");
             if (folderName != null) {
                 if (!"".equals(folderName)) {
-                    if (!fileExists(parent, folderName))
-                        p.createDirectory(parent + "/" + folderName);
-                    else {
+                     if (!fileExists(parent, folderName)) p.createDirectory(parent + "/" + folderName);
+                     else {
                         while (fileExists(parent, folderName + " (" + copyNumber + ")")) {
                             copyNumber++;
                         }
 
-                      }
-                } else {
-                    if (!fileExists(parent, "New Folder"))
-                        p. c reateD         else {
+                        p.createDirectory(parent + "/" + folderName + " (" + copyNumber + ")");
+                    }
+                }
+                else {
+                    if (!fileExists(parent, "New Folder")) p.createDirectory(parent + "/" + "New Folder");
+                    else {
                         while (fileExists(parent, "New Folder (" + copyNumber + ")")) {
                             copyNumber++;
-                    
                         }
 
                         p.createDirectory(parent + "/" + "New Folder (" + copyNumber + ")");
                     }
                 }
-                files = p.readDirectory(parent);
-                f
-
-                (RemoteException ex) {
+            files = p.readDirectory(parent);
+            fileList.setModel(refreshModel());
+            }
+        } catch (RemoteException ex) {
             Logger.getLogger(RMIClient.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } 
-    public static void main(String args[]) throws RemoteException, NotBoundException {
+    }
 
+    public static void main(String args[]) throws RemoteException, NotBoundException {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(RMIClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(RMIClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(RMIClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(RMIClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (System.getSecurityManager() == null) {
+                    if(System.getSecurityManager()==null) {
                         System.setSecurityManager(new SecurityManager());
                     }
-
+                    
                     new RMIClient().setVisible(true);
                 } catch (RemoteException | NotBoundException ex) {
-                    Logger.getLogger(R
-            IClient.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(RMIClient.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        });   
+        });
+    }
 
     private javax.swing.JButton backButton;
-                
-    priva
-
-        ate javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JList<String> fileList;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JButton newFil
-
-            javax.swing.JButton openFolderButton;
+    private javax.swing.JButton newFileButton;
+    private javax.swing.JButton newFolderButton;
+    private javax.swing.JButton openFolderButton;
     private javax.swing.JLabel propertiesLabel;
     private javax.swing.JTable propertiesTable;
     private javax.swing.JButton renameButton;
     private javax.swing.JLabel titleLabel;
-
+  
 }
-
-                
-                    
-                
-
-                    
-            
-
-        
-
-              
-                     
-                       
-                       
-                       
-                        
-
-                
-                            
-                            
-                                
-                            
-
-                             
-                            
-                            
-                                
-                            
-
-                            
-            
-
-        
-
-            
-                    
-                        
-                     
-                        
-                
-                   
-
-                    
-

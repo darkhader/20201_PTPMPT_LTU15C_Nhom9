@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="RFSclient:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0faf5647-500c-45ca-8a4f-d7fe7a28d47d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -27,12 +50,35 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/RFSclient" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../my-project" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Study\Docker\backup\20201_PTPMPT_LTU15C_Nhom9\RFSclient\out\production\RFSclient" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RMIServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RMIServer" />
+      <module name="RFSserver" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+>>>>>>> hiepdz
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -46,8 +92,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RMIServer" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructuralSearchPlugin">
+    <replaceConfiguration name="Unnamed" created="1608033479760" text="// $CommentContent$ " recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" reformatAccordingToStyle="false" shortenFQN="false" replacement="" history="1">
+      <constraint name="__context__" within="" contains="" />
+      <constraint name="CommentContent" within="" contains="" />
+    </replaceConfiguration>
+    <replaceConfiguration name="Unnamed" created="1608033456771" text="/**&#10; $CommentContent$ &#10; */" recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" reformatAccordingToStyle="false" shortenFQN="false" replacement="" history="1">
+      <constraint name="__context__" within="" contains="" />
+      <constraint name="CommentContent" within="" contains="" />
+    </replaceConfiguration>
+    <replaceConfiguration name="Unnamed" created="1608033434889" text="/*&#10;  $CommentContent$ &#10;*/" recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" reformatAccordingToStyle="false" shortenFQN="false" replacement="" history="1">
+      <constraint name="__context__" within="" contains="" />
+      <constraint name="CommentContent" within="" contains="" />
+    </replaceConfiguration>
+    <replaceConfiguration name="Unnamed" created="1608033403310" text="// $CommentContent$" recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" reformatAccordingToStyle="false" shortenFQN="false" replacement="" history="1">
+      <constraint name="__context__" within="" contains="" />
+      <constraint name="CommentContent" within="" contains="" />
+    </replaceConfiguration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="0faf5647-500c-45ca-8a4f-d7fe7a28d47d" name="Default Changelist" comment="" />
@@ -56,21 +125,95 @@
       <option name="presentableId" value="Default" />
       <updated>1606213481299</updated>
       <workItem from="1606213482421" duration="104000" />
+<<<<<<< HEAD
       <workItem from="1607582690284" duration="351000" />
+=======
+      <workItem from="1608032288852" duration="525000" />
+      <workItem from="1608033009119" duration="3108000" />
+      <workItem from="1608055367057" duration="12440000" />
+>>>>>>> hiepdz
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="137" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606213574862">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="137" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.1366.738@0.30.1366.738" timestamp="1606213574862" />
-    <state x="463" y="154" key="FileChooserDialogImpl" timestamp="1606213586164">
-      <screen x="0" y="30" width="1366" height="738" />
+    <state x="690" y="350" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1608068018979">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="690" y="350" key="#com.intellij.ide.util.TreeClassChooserDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1608068018979" />
+    <state width="943" height="533" key="#com.intellij.structuralsearch.plugin.ui.StructuralReplaceDialog" timestamp="1608033479753">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="943" height="533" key="#com.intellij.structuralsearch.plugin.ui.StructuralReplaceDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1608033479753" />
+    <state x="488" y="293" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog" timestamp="1608033479753">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="488" y="293" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1608033479753" />
+    <state x="651" y="215" key="FileChooserDialogImpl" timestamp="1608076958450">
+      <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="463" y="154" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1606213586164" />
+    <state x="651" y="215" key="FileChooserDialogImpl/0.40.1920.1040@0.40.1920.1040" timestamp="1608076958450" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1608063607226">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1608063607226" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1608063607226">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1608063607226" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1608063607225">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1608063607225" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1608063607226">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1608063607226" />
+    <state x="440" y="134" key="SettingsEditor" timestamp="1608068053869">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="440" y="134" key="SettingsEditor/0.40.1920.1040@0.40.1920.1040" timestamp="1608068053869" />
+    <state x="667" y="293" width="585" height="534" key="find.popup" timestamp="1608048898798">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="667" y="293" width="585" height="534" key="find.popup/0.40.1920.1040@0.40.1920.1040" timestamp="1608048898798" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RFSclient/src/RMIClient.java</url>
+          <line>455</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/RFSclient/src/RMIClient.java</url>
+          <line>63</line>
+          <properties class="RMIClient" method="directoryContents">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
