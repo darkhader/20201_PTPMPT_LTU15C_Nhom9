@@ -34,7 +34,8 @@ abiword
 ## Play  
 * run server then check ip on your docker 172.17.0.3
   ```python
-hostname --ip-address
+  hostname --ip-address
+```
 ```
 * run client on XServer, enter server ip
 # Having Fun
