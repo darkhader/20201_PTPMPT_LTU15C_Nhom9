@@ -32,6 +32,6 @@ openjdk-11-jdk
 abiword
 ```
 ## Play  
-run server then check ip on your docker
-run client on XServer, enter server ip
-Having Fun
+*run server then check ip on your docker
+*run client on XServer, enter server ip
+# Having Fun
