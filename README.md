@@ -10,16 +10,20 @@
   * Sever + Client sử dụng RMI để giao tiếp với nhau
   * Client triển khai trên 1 container
   * Server triển khai trên 1 container
-  * Chạy XWindow màn ảo cho Docker chạy GUI App
-  ## Run
+  * Chạy XCVSrv màn ảo cho Docker chạy GUI App
+# Requirement
+  * XCVSrv -- An X Server for Windows -- https://sourceforge.net/projects/vcxsrv/
+  * Docker Desktop https://www.docker.com/products/docker-desktop
+# Run
  * Bước 1: 
-  Vào folder RFSclient/RFSserver chạy lệnh lần lượt các lệnh sau để build images Docker = DockerFile
+   - Chạy Docker Desktop
+   - Vào folder RFSclient/RFSserver chạy lệnh lần lượt các lệnh sau để build images Docker = DockerFile
   ```python
 docker build -t client .
 docker build -t server .
 ```
 * Bước 2: 
-  - Chạy XWindow
+  - Chạy XCVSrv following setup here: https://www.youtube.com/watch?v=YbXDJJE5zsc&t=372s&ab_channel=WintellectNOW
   - Vào cmd gõ ipconfig lấy địa chỉ ip máy
 * Bước 3: 
   - Chạy image server
