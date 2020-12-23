@@ -17,7 +17,7 @@
 # Run
  * Bước 1: 
    - Chạy Docker Desktop.
-   - Vào folder RFSclient/RFSserver chạy lệnh lần lượt các lệnh sau để build images Docker = DockerFile.
+   - Vào folder RFSclient/RFSserver chạy lần lượt các lệnh sau để build images Docker = DockerFile.
     ```python
        docker build -t client .
        docker build -t server .
