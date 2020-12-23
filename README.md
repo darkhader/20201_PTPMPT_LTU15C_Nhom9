@@ -18,10 +18,10 @@
  * Bước 1: 
    - Chạy Docker Desktop.
    - Vào folder RFSclient/RFSserver chạy lệnh lần lượt các lệnh sau để build images Docker = DockerFile.
-  ```python
-docker build -t client .
-docker build -t server .
-```
+    ```python
+       docker build -t client .
+       docker build -t server .
+     ```
 * Bước 2: 
   - Chạy XCVSrv following setup here: https://www.youtube.com/watch?v=YbXDJJE5zsc&t=372s&ab_channel=WintellectNOW
   - Vào cmd gõ ipconfig lấy địa chỉ ip máy.
@@ -29,10 +29,10 @@ docker build -t server .
   - Chạy image server.
    ```python
     docker run server
-    ```
+   ```
   - Lấy địa chỉ ip của server để giao tiếp vs client qua RMI.
-  ```python
-    hostname --ip-address
+   ```python
+   hostname --ip-address
     ```
  * Bước 4: 
    - Chạy image client trên XWindow.
