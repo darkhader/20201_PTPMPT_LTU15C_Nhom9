@@ -11,31 +11,32 @@
   * Client triển khai trên 1 container
   * Server triển khai trên 1 container
   * Chạy XWindow màn ảo cho Docker chạy GUI App
-  ## Build Docker
+  ## Run
+ * Bước 1: 
+  Vào folder RFSclient/RFSserver chạy lệnh lần lượt các lệnh sau để build images Docker = DockerFile
   ```python
 docker build -t client .
 docker build -t server .
 ```
-  ## Run 
+* Bước 2: 
+  - Chạy XWindow
+  - Vào cmd gõ ipconfig lấy địa chỉ ip máy
+* Bước 3: 
+  - Chạy image server
+   ```python
+    docker run server
+    ```
+  - Lấy địa chỉ ip của server để giao tiếp vs client qua RMI
   ```python
-docker run -e DISPLAY=192.168.2.109:0  client 
-docker run -e DISPLAY=192.168.2.109:0  server
-```
-  ## Set up Jar  
-  ```python
-java -jar RFSserver.jar 
-java -jar RFSclient.jar 
-```
-## EVN Docker  
-  ```python
-openjdk-11-jdk
-abiword
-```
-## Play  
-* run server then check ip on your docker 172.17.0.3
-  ```python
-  hostname --ip-address
-  ```
+    hostname --ip-address
+    ```
+ * Bước 4: 
+  - Chạy image client trên XWindow
+   ```python
+    docker run -e DISPLAY=<your_ip>:0  client 
+   ```
+  - Hiển thị cửa sổ GUI và điền địa chỉ ip của server đã lấy ở trên.
+  - Thưởng thức
   
-* run client on XServer, enter server ip
-# Having Fun
+
+
