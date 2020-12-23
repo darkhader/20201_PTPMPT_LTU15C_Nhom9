@@ -6,7 +6,7 @@
    * Nguyễn Đức Đạt
    * Nguyễn Hữu Vinh
 # Details
-  * Basic functionalities only, as nothing more complex was needed
+  * Phần mềm thêm sửa xóa files, folders
   * Sever + Client sử dụng RMI để giao tiếp với nhau
   * Client triển khai trên 1 container
   * Server triển khai trên 1 container
@@ -40,7 +40,8 @@ docker build -t server .
     docker run -e DISPLAY=<your_ip>:0  client 
    ```
    - Hiển thị cửa sổ GUI và điền địa chỉ ip của server đã lấy ở trên.
-   - Thưởng thức
+   - Thêm sửa xóa files, folders
+   - Folder lưu trữ trên server root/RFS
   
 
 
