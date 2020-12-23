@@ -31,12 +31,12 @@ docker build -t server .
     hostname --ip-address
     ```
  * Bước 4: 
-  - Chạy image client trên XWindow
+   - Chạy image client trên XWindow
    ```python
     docker run -e DISPLAY=<your_ip>:0  client 
    ```
-  - Hiển thị cửa sổ GUI và điền địa chỉ ip của server đã lấy ở trên.
-  - Thưởng thức
+   - Hiển thị cửa sổ GUI và điền địa chỉ ip của server đã lấy ở trên.
+   - Thưởng thức
   
 
 
